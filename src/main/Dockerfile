@@ -20,7 +20,7 @@ WORKDIR /usr/local/tomcat/webapps
 COPY --from=builder /app/target/demo-1.0-SNAPSHOT.war ./ROOT.war
 
 # Set a+rwx permissions to the new webapps directory
-RUN chmod -R 777 /usr/local/tomcat/webapps
+RUN chmod -R a+rwx /usr/local/tomcat/webapps
 
 # Set a non-root user
 USER 10014
