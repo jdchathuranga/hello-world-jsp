@@ -19,6 +19,9 @@ WORKDIR /usr/local/tomcat/webapps
 # Copy the generated WAR file to the container
 COPY --from=builder /app/target/demo-1.0-SNAPSHOT.war ./ROOT.war
 
+# Set a+rwx permissions to the new webapps directory
+RUN chmod -R a+rwx /usr/local/tomcat/webapps
+
 # Set a non-root user
 USER 10014
 
