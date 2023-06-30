@@ -3,4 +3,35 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <filter>
+        <filter-name>OIDCAgentFilter</filter-name>
+        <filter-class>io.asgardeo.tomcat.oidc.agent.OIDCAgentFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>OIDCAgentFilter</filter-name>
+        <url-pattern>/logout</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>OIDCAgentFilter</filter-name>
+        <url-pattern>/oauth2client</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>OIDCAgentFilter</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>OIDCAgentFilter</filter-name>
+        <url-pattern>*.html</url-pattern>
+    </filter-mapping>
+    <listener>
+        <listener-class>io.asgardeo.tomcat.oidc.agent.SSOAgentContextEventListener</listener-class>
+    </listener>
+    <context-param>
+        <param-name>app-property-file</param-name>
+        <param-value>test.properties</param-value>
+    </context-param>
+    <listener>
+        <listener-class>io.asgardeo.tomcat.oidc.agent.JKSLoader</listener-class>
+    </listener>
+
 </web-app>
