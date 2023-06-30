@@ -22,6 +22,12 @@
             <groupId>io.asgardeo.tomcat.oidc.agent</groupId>
             <artifactId>io.asgardeo.tomcat.oidc.agent</artifactId>
             <version>0.1.27</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-server</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
